@@ -1,0 +1,31 @@
+services:
+  playsync_server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    image: server_playsync
+    expose:
+      - "5000"
+    volumes:
+      - ./server:/app
+    env_file:
+      - ./server/.env
+
+  proxy_playsync:
+    build:
+      context: ./server/nginx/
+      dockerfile: Dockerfile
+    depends_on:
+      - playsync_server
+    ports:
+      - "80:80"
+
+  playsync_client:
+    build:
+      context: ./client
+      dockerfile: src/Dockerfile
+    image: client_playsync
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client:/app

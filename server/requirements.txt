@@ -1,0 +1,12 @@
+flask==3.0.3
+requests==2.32.3
+tidalapi==0.7.6
+pymongo==4.8.0
+Flask_PyMongo==2.3.0
+spotipy==2.24.0
+ytmusicapi==1.8.0
+pillow==10.4.0
+gunicorn
+pymongo==4.8.0
+flask_cors==4.0.1
+python-dotenv==1.0.1
